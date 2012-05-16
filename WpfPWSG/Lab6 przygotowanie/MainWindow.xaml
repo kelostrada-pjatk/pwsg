@@ -1,0 +1,65 @@
+﻿<Window x:Class="Lab6_przygotowanie.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:c="clr-namespace:Lab6_przygotowanie"
+        Title="MainWindow" Height="453" Width="741">
+    <Window.Resources>
+        <Style x:Key="TextBoxRightClick" TargetType="TextBox">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseRightButtonUp">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ContextMenuRemove" TargetType="ContextMenu">
+            
+            <Setter Property="TextBox.Visibility" Value="Visible" TargetName="textBox"/>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseLeftButtonDown">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+    <Grid>
+        <Grid.Resources>
+            <c:OrientationConverter x:Key="orientationConverter"/>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition>
+                <RowDefinition.Height>80</RowDefinition.Height>
+            </RowDefinition>
+            <RowDefinition>
+                <RowDefinition.Height>100</RowDefinition.Height>
+            </RowDefinition>
+            <RowDefinition>
+                <RowDefinition.Height>*</RowDefinition.Height>
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="2" Name="stackPanel1" Width="Auto" Height="Auto"  Orientation="{Binding ElementName=checkBox1, Path=IsChecked, Converter={StaticResource orientationConverter}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+            <TextBox Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <TextBox Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <TextBox Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Text="12"/>
+            <TextBox Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        </StackPanel>
+        <CheckBox Content="Horizontal" Grid.Row="1" Height="16" HorizontalAlignment="Left" Margin="20,48,0,0" Name="checkBox1" VerticalAlignment="Top" IsChecked="True" />
+
+        <TextBox Name="textBox" Grid.Row="0" Style="{StaticResource TextBoxRightClick}" Text="This is a TextBox.   Try using the mouse wheel.">
+            <TextBox.ContextMenu>
+                <ContextMenu Style="{StaticResource ContextMenuRemove}">
+                    Usuń
+                </ContextMenu>
+            </TextBox.ContextMenu>
+        </TextBox>
+    </Grid>
+</Window>

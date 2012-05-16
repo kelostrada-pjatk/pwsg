@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testowy", "testowy\testowy.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab5", "Lab5\Lab5.csproj", "{83B6CA91-4883-49BB-A04D-3B6C80C420AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab6 przygotowanie", "Lab6 przygotowanie\Lab6 przygotowanie.csproj", "{2411C871-A868-4CD9-AB5C-DA9BADDEC3C2}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -29,6 +31,10 @@ Global
 		{83B6CA91-4883-49BB-A04D-3B6C80C420AD}.Debug|x86.Build.0 = Debug|x86
 		{83B6CA91-4883-49BB-A04D-3B6C80C420AD}.Release|x86.ActiveCfg = Release|x86
 		{83B6CA91-4883-49BB-A04D-3B6C80C420AD}.Release|x86.Build.0 = Release|x86
+		{2411C871-A868-4CD9-AB5C-DA9BADDEC3C2}.Debug|x86.ActiveCfg = Debug|x86
+		{2411C871-A868-4CD9-AB5C-DA9BADDEC3C2}.Debug|x86.Build.0 = Debug|x86
+		{2411C871-A868-4CD9-AB5C-DA9BADDEC3C2}.Release|x86.ActiveCfg = Release|x86
+		{2411C871-A868-4CD9-AB5C-DA9BADDEC3C2}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
