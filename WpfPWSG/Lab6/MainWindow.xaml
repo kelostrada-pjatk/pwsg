@@ -1,27 +1,34 @@
 ﻿<Window x:Class="Lab6.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:c="clr-namespace:Lab6"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <c:Chocolates x:Key="chocolates"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
             <RowDefinition Height="23"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        
-        <Grid Grid.Row="3" Grid.ColumnSpan="3" >
+
+        <ItemsControl Grid.Row="0" ItemsSource="{StaticResource chocolates}" SnapsToDevicePixels="True" >
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Name="asd" Rows="{Binding ElementName=slider1, Path=Value}" Columns="{Binding ElementName=slider2, Path=Value}"  />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            
+        </ItemsControl>
+
+
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Slider Grid.Column="0" Height="23" HorizontalAlignment="Stretch" Name="slider1" VerticalAlignment="Bottom" Minimum="2" Maximum="25" Margin="33,0,0,0" IsSnapToTickEnabled="True" />
-            <Slider Grid.Column="1" Height="23" HorizontalAlignment="Stretch" Name="slider2" VerticalAlignment="Bottom" Minimum="2" Maximum="25" Margin="33,0,0,0" IsSnapToTickEnabled="True" />
+            <Slider Grid.Column="0" Height="23" HorizontalAlignment="Stretch" Name="slider1" VerticalAlignment="Bottom" Minimum="2" Maximum="25" Margin="33,0,0,0" IsSnapToTickEnabled="True" ValueChanged="slider1_ValueChanged" />
+            <Slider Grid.Column="1" Height="23" HorizontalAlignment="Stretch" Name="slider2" VerticalAlignment="Bottom" Minimum="2" Maximum="25" Margin="33,0,0,0" IsSnapToTickEnabled="True" ValueChanged="slider1_ValueChanged" />
             <Label Grid.Column="0" Content="{Binding Path=Value,ElementName=slider1}" Height="23" HorizontalAlignment="Left" Name="label1" VerticalAlignment="Bottom" />
             <Label Grid.Column="1" Content="{Binding Path=Value,ElementName=slider2}" Height="23" HorizontalAlignment="Left" Name="label2" VerticalAlignment="Bottom" />
         </Grid>
