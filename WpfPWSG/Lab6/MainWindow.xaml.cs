@@ -153,6 +153,8 @@ namespace Lab6
             multiBinding.Converter = new ChocolatePropertiesConverter();
             this[0].SetBinding(SolidColorBrush.TransformProperty, multiBinding);
 
+            
+
             for (int k = 1; k < i * j ; k++)
             {
                 nowy = new Rectangle();
@@ -193,7 +195,7 @@ namespace Lab6
 
         void nowy_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (!((ChompGameLogic.ChocolateBrick)((Rectangle)sender).DataContext).IsEaten)
+            if (!chocolate.IsLogicRunning && !((ChompGameLogic.ChocolateBrick)((Rectangle)sender).DataContext).IsEaten)
             {
                 ColorAnimation animate = new ColorAnimation();
                 if (((ChompGameLogic.ChocolateBrick)((Rectangle)sender).DataContext).IsPoisoned)
