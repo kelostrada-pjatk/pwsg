@@ -31,6 +31,7 @@ namespace Lab6
             
             ch = (Chocolates)FindResource("chocolates");
             ch.GenerateChocolates((int)slider1.Value, (int)slider2.Value);
+            ch.w = this;
                         
         }
 
@@ -38,6 +39,14 @@ namespace Lab6
         {
             if (ch!=null)
                 ch.GenerateChocolates((int)slider1.Value, (int)slider2.Value);
+        }
+
+        public void ShowModal(string s)
+        {
+            this.Dispatcher.Invoke((Action)delegate
+            {
+                MessageBox.Show(this, s);
+            });
         }
     }
 
@@ -117,6 +126,7 @@ namespace Lab6
     {
         ChompGameLogic.ChompGameLogic chocolate;
         int i, j;
+        public MainWindow w;
 
         public Chocolates()
             : base()
@@ -186,9 +196,9 @@ namespace Lab6
         void chocolate_GameEnded(object sender, ChompGameLogic.GameResultEventArgs e)
         {
             if (e.DidPlayerWin)
-                MessageBox.Show("Player wins");
+                w.ShowModal("Player wins");
             else
-                MessageBox.Show("PC wins");
+                w.ShowModal("PC wins");
 
             chocolate.ResetGame();
         }
